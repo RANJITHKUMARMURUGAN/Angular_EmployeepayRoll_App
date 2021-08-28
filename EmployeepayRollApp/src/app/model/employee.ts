@@ -1,6 +1,10 @@
 export class Employee {
         id!: number;
-        firstName!: string;
-        lastName!: string;
+        name!: string;
+        profilePic!: string;
+        gender!: string;
         email!: string;
+        date!: string;
+        salary!: string;
+        note!: string;
 }

@@ -12,4 +12,7 @@ export class HttpService {
   getEmployeeData(): Observable<any>{
     return this.httpClient.get("http://localhost:8080/api/employees/get")
   }
+  postemployeeData(data: any): Observable<any>{
+    return this.httpClient.post("http://localhost:8080/api/employees",data);
+  }
 }
