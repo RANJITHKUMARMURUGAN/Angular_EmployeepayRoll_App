@@ -16,4 +16,7 @@ export class HttpService {
   addEmployeeData(body: any): Observable<any> {
     return this.httpClient.post("http://localhost:8080/api/employees", body);
   }
+  deleteEmployeeData(id: any): Observable<any> {
+    return this.httpClient.delete("http://localhost:8080/api/employees/"+id);
+  }
 }

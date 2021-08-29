@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from './material/angular-material/angular-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import{ FormsModule }from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddComponent,
     EmployeeDetailsComponent,
     HomeComponent,
+    FormsModule,
   ],
   imports: [
     BrowserModule,
