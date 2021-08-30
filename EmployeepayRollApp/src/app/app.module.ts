@@ -5,13 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './component/header/header.component';
 import { AddComponent } from './component/add/add.component';
-import { EmployeeDetailsComponent } from './component/employee-details/employee-details.component';
+//import { EmployeeDetailsComponent } from './component/employee-details/employee-details.component';
 import { HomeComponent } from './component/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularMaterialModule } from './material/angular-material/angular-material.module';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import{ FormsModule }from '@angular/forms';
 
 
 @NgModule({
@@ -19,9 +18,8 @@ import{ FormsModule }from '@angular/forms';
     AppComponent,
     HeaderComponent,
     AddComponent,
-    EmployeeDetailsComponent,
+    //EmployeeDetailsComponent,
     HomeComponent,
-    FormsModule,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +28,7 @@ import{ FormsModule }from '@angular/forms';
     AngularMaterialModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

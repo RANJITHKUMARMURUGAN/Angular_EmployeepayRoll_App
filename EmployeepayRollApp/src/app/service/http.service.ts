@@ -7,16 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
+  private baseUrl: string = "http://localhost:8080/api/employees/"
+
   constructor(private httpClient: HttpClient){}
 
   getEmployeeData(): Observable<any>{
-    return this.httpClient.get("http://localhost:8080/api/employees/get")
+    return this.httpClient.get(this.baseUrl + "get")
   }
 
   addEmployeeData(body: any): Observable<any> {
-    return this.httpClient.post("http://localhost:8080/api/employees", body);
+    return this.httpClient.post(this.baseUrl, body);
   }
-  deleteEmployeeData(id: any): Observable<any> {
-    return this.httpClient.delete("http://localhost:8080/api/employees/"+id);
+
+  deleteEmployeeData(id: number): Observable<any> {
+    return this.httpClient.delete(this.baseUrl + id);
   }
 }

@@ -22,9 +22,7 @@
             <th>Actions</th>
         </tr>
         <tr *ngFor="let employee of employeeDetails">
-            <td>
-                <img class="profile" src="../../../assets/profile-images/Ellipse -3.png" alt="">
-            </td>
+           <td><img class="profile" src={{employee.profilePic}} alt=""></td> 
             <td>{{employee.name}}</td>
             <td>{{employee.gender}}</td>
             <td>{{employee.email}}</td>
@@ -34,9 +32,9 @@
 
             <td>
                 <img id={{employee.id}} (click)="remove(employee.id)"
-                    src="../../../assets/icons/delete-black-18dp.svg"
-                    alt="delete">
-                <img id={{employee.id}} onclick="update(this)"
+                    src="../../../assets/icons/delete-black-18dp.svg" alt="delete">
+
+                <img id={{employee.id}} (click)="update(employee)"
                     src="../../../assets/icons/create-black-18dp.svg" alt="edit">
             </td>
         </tr>
