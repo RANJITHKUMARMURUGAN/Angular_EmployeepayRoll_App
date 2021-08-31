@@ -12,14 +12,19 @@ export class HttpService {
   constructor(private httpClient: HttpClient){}
 
   getEmployeeData(): Observable<any>{
-    return this.httpClient.get(this.baseUrl + "get")
+    return this.httpClient.get(this.baseUrl + "getAllEmployee")
   }
 
-  addEmployeeData(body: any): Observable<any> {
-    return this.httpClient.post(this.baseUrl, body);
+  addEmployeeData(data: any): Observable<any> {
+    return this.httpClient.post(this.baseUrl+"addEmployee", data);
+  }
+
+  updateEmployeeData(id: number, data: any): Observable<any> {
+    return this.httpClient.put(this.baseUrl + "updateEmployee/"+id, data);
   }
 
   deleteEmployeeData(id: number): Observable<any> {
-    return this.httpClient.delete(this.baseUrl + id);
+    return this.httpClient.delete(this.baseUrl + "deleteEmployee/"  +id); 
   }
+  
 }

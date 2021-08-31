@@ -19,24 +19,25 @@ export class AddComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private httpService: HttpService,
+    private router: Router,
     private dataService: DataService,
-    private activatedRoute: ActivatedRoute) {
-    
-      this.employeeFormGroup = this.formBuilder.group({
+    private route: ActivatedRoute,) {
+
+    this.employeeFormGroup = this.formBuilder.group({
       name: new FormControl(''),
       profilePic: new FormControl(''),
       gender: new FormControl(''),
       email: new FormControl(''),
       salary: new FormControl(''),
       date: new FormControl(''),
-      note: new FormControl('') 
+      note: new FormControl('')
     })
-   }
+  }
 
   ngOnInit(): void {
-    if(this.activatedRoute.snapshot.params['id'] != undefined){
-      this.dataService.currentEmployee.subscribe(employee=>{
-        if(Object.keys(employee).length !==0){
+    if(this.route.snapshot.params['id'] != undefined) {
+      this.dataService.currentEmployee.subscribe(employee => {
+        if (Object.keys(employee).length !== 0) {
           console.log(employee);
           this.employeeFormGroup.get('name')?.setValue(employee.name);
           this.employeeFormGroup.get('profilePic')?.setValue(employee.profilePic);
@@ -56,17 +57,27 @@ export class AddComponent implements OnInit {
     }
     return value;
   }
-    
-     salary: number = 400000;
-    updateSetting(event: any) {
+
+  salary: number = 400000;
+  updateSetting(event: any) {
     this.salary = event.value;
   }
 
-  onSubmit(): void{
+  onSubmit(): void {
     this.employee = this.employeeFormGroup.value;
-    this.httpService.addEmployeeData(this.employee).subscribe(response=>{
-      console.log(response);
-    })
+    if(this.route.snapshot.params['id'] != undefined) {
+      this.httpService.updateEmployeeData(this.route.snapshot.params['id'], this.employee).subscribe(data=>{
+        console.log(data);
+        this.router.navigateByUrl("/home");
+
+      });
+    } else {
+      this.httpService.addEmployeeData(this.employee).subscribe(res => {
+        console.log(res);
+        this.router.navigateByUrl("/home");
+      })
+    }
   }
+  
 }
 

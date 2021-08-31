@@ -6,10 +6,11 @@ import { HttpService } from 'src/app/service/http.service';
 
 @Component({
   selector: 'app-home',
-  template:'<app-add>[employeeData]="employee"><.app-add>',
+   template:'<app-add>[employeeData]="employee"><.app-add>',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomeComponent implements OnInit {
 
   public employeeCount: number = 10;
@@ -25,19 +26,19 @@ export class HomeComponent implements OnInit {
       this.employeeDetails = response;
       this.employeeCount = this.employeeDetails.length;
       console.log(this.employeeDetails);
+      console.log(this.employeeCount);
     });
   }
-  remove(id: number): void {
-    this.httpService.deleteEmployeeData(id).subscribe(response => console.log(response));  //{
-      this.ngOnInit();
-      // this.ngOnInit();
-    //})
-  }
+  
+ remove(id: number){
+   this.httpService.deleteEmployeeData(id).subscribe(data=>{
+     console.log(data);
+     this.ngOnInit();  
+   })
+ }
+ 
   update(employee: Employee): void{
-    //this.employee = employee;
     this.dataService.changeEmployee(employee);
-    this.router.navigateByUrl('/add/'+ employee.id);
-
-    
+    this.router.navigateByUrl('/add/' +employee.id);
   }
 }
