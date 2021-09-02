@@ -3,6 +3,7 @@ export class Employee {
         name!: string;
         profilePic!: string;
         gender!: string;
+        department: string[] = [];
         email!: string;
         date!: string;
         salary!: string;

@@ -7,11 +7,11 @@ import { Employee } from '../model/employee';
 })
 export class DataService {
 
-  private employeeSource= new BehaviorSubject(new Employee());
+  private employeeSource = new BehaviorSubject(new Employee());
   currentEmployee = this.employeeSource.asObservable();
-  
+
   constructor() { }
-  changeEmployee(employee: Employee){
+  changeEmployee(employee: Employee) {
     this.employeeSource.next(employee);
   }
 }

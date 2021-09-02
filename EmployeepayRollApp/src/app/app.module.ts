@@ -18,8 +18,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HeaderComponent,
     AddComponent,
-    
-    //EmployeeDetailsComponent,
     HomeComponent,
   ],
   imports: [

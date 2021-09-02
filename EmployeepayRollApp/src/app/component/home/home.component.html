@@ -7,7 +7,7 @@
         <a class="add-button" routerLink="/add">
             <img src="../../../assets/icons/add-24px.svg" alt="Add User Logo">Add User
         </a>
-    </div> 
+    </div>
 </div>
 <div class="table-main">
     <table id="table-display" class="table">
@@ -15,6 +15,7 @@
             <th></th>
             <th>Name</th>
             <th>Gender</th>
+            <th>Department</th>
             <th>Email Id</th>
             <th>Salary</th>
             <th>Start Date</th>
@@ -22,20 +23,23 @@
             <th>Actions</th>
         </tr>
         <tr *ngFor="let employee of employeeDetails">
-           <td><img class="profile" src={{employee.profilePic}} alt=""></td> 
+            <td><img class="profile" src={{employee.profilePic}} alt=""></td>
             <td>{{employee.name}}</td>
             <td>{{employee.gender}}</td>
+            <div class="dept-label" *ngFor="let department of employee.department">
+                {{department}}
+            </div>
             <td>{{employee.email}}</td>
             <td>{{employee.salary}}</td>
             <td>{{employee.date}}</td>
             <td>{{employee.note}}</td>
 
             <td>
-                <img id={{employee.id}} (click)="remove(employee.id)"
+                <img id={{employee.id}} (click)="openSnackBar('Deleted Successfully','Close')"
                     src="../../../assets/icons/delete-black-18dp.svg" alt="delete">
 
-                <img id={{employee.id}} (click)="update(employee)"
-                    src="../../../assets/icons/create-black-18dp.svg" alt="edit">
+                <img id={{employee.id}} (click)="update(employee)" src="../../../assets/icons/create-black-18dp.svg"
+                    alt="edit">
             </td>
         </tr>
     </table>
