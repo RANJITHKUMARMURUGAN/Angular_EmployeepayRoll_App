@@ -4,7 +4,6 @@ export class Employee {
         profilePic!: string;
         gender!: string;
         department: string[] = [];
-        email!: string;
         date!: string;
         salary!: string;
         note!: string;
